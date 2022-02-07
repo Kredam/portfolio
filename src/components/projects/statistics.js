@@ -1,9 +1,12 @@
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, CircularProgress, Card, CardContent } from "@mui/material";
 import useSWR from "swr";
 
 const fetcher = async(...args) => await fetch(...args).then(response => response.json());
 
+
+
 const Statistics = () => {
+
     const { data, error } = useSWR('http://localhost:3000/api/githubAPI', fetcher);
 
     return(
@@ -12,12 +15,21 @@ const Statistics = () => {
                 <Typography variant='h4' align="center">Statistics</Typography>
             </Grid>
             <Grid item container>
-                <Grid item>
-                    <Typography>{data ? data.followers : 'Loading'}</Typography>
-                </Grid>
-                <Grid item>
-                    <Typography>{data ? data.repos : 'Loading'}</Typography>
-                </Grid>
+                {data ? Object.entries(data).map( ([key, value]) => {
+                    console.log(key, value);
+                    return <>
+                        <Grid item xs>
+                            <Card>
+                                <CardContent>
+                                    <Typography>{key}</Typography>
+                                </CardContent>
+                                <CardContent>
+                                    <Typography key={value}>{value}</Typography>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    </>
+                }) : 'Not working'}
             </Grid>
         </Grid>
     )
