@@ -1,10 +1,11 @@
 // import App from 'next/app'
 import { ThemeProvider } from '@emotion/react';
+import { SWRConfig } from 'swr';
 import { createTheme, CssBaseline, LinearProgress, Box } from "@mui/material";
 import * as React from 'react';
 
 function MyApp({ Component, pageProps }) {
-    const [loading, setLoading] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)    
 
     const darkTheme = createTheme({
 		palette:{
@@ -27,7 +28,11 @@ function MyApp({ Component, pageProps }) {
                                 <LinearProgress />
                             </Box>
                         </ThemeProvider>) : 
-                        (<ThemeProvider theme={darkTheme}><CssBaseline /><Component {...pageProps} /></ThemeProvider>)}
+                        (
+                            <ThemeProvider theme={darkTheme}>
+                                <CssBaseline />
+                                <Component {...pageProps} />
+                            </ThemeProvider>)}
         </>
     );
 }

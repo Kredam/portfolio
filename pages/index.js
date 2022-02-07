@@ -11,7 +11,6 @@ import Statistics from '../src/components/projects/statistics.js';
 const MainPage = () =>{
 	return (
 		<Box>
-
 			<Navbar />
 			<Card />
 			<About />
