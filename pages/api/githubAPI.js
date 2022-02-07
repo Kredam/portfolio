@@ -2,11 +2,11 @@ const { Octokit } = require('@octokit/rest')
 
 export default async(req, res) => {
     const octokit = new Octokit({
-        auth: process.env.GITHUB_AUTH_TOKEN
+        auth: process.env.NEXT_PUBLIC_GITHUB_AUTH_TOKEN
     })
     const statNames= ['Repos', 'Followers', 'Stargazers', 'Watchers', 'Public Repos', 'Private Repos', 'Collabs'];
 
-    
+
     const {data: followers} = await octokit.request("/users/Kredam/followers?per_page=100");
     const {data: my_repos} = await octokit.rest.repos.listForAuthenticatedUser();
     const stargazersCount = my_repos.filter(repo => !repo.fork).reduce((curr, next) => {return curr + next.stargazers_count}, 0);
