@@ -6,6 +6,7 @@ export default async(req, res) => {
     })
     const statNames= ['Repos', 'Followers', 'Stargazers', 'Watchers', 'Public Repos', 'Private Repos', 'Collabs'];
 
+    
     const {data: followers} = await octokit.request("/users/Kredam/followers?per_page=100");
     const {data: my_repos} = await octokit.rest.repos.listForAuthenticatedUser();
     const stargazersCount = my_repos.filter(repo => !repo.fork).reduce((curr, next) => {return curr + next.stargazers_count}, 0);
