@@ -9,7 +9,7 @@ const fetcher = async(...args) => await fetch(...args).then(response => response
 
 const Statistics = () => {
 
-    const { data, error } = useSWR('http://localhost:3000/api/githubAPI', fetcher);
+    const { data, error } = useSWR('/api/githubAPI', fetcher);
     const statNames= ['Repos', 'Followers', 'Stargazers', 'Watchers', 'Public Repos', 'Private Repos', 'Collabs'];
     return(
         <Grid sx={{marginTop:'40px'}} container justifyContent="center" alignItems='center'>
