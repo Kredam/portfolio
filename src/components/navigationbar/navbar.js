@@ -6,6 +6,7 @@ import {    Box, AppBar, Toolbar,
             ListItem, ListItemText, ListItemIcon,
             Avatar, Divider} 
 from '@mui/material';
+import { motion } from "framer-motion"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUser, faCode } from '@fortawesome/free-solid-svg-icons';
 
@@ -32,6 +33,11 @@ const Navbar = () => {
     const pagesMenu = [<Avatar alt="Kreidli Ádám" src="./avatar.jpg" sx={{ width: 170, height: 170 , display:{xs:'block', sm:'none'}}}/>,'About', 'Skills','Projects', 'Statistics'];
     const pagesFull = ['About', 'Skills', 'Kredam','Projects', 'Statistics'];
 
+    const variant = {
+        visible: {opacity: 1},
+        hidden: {opacity: 0}
+    }
+
     return(
         <Box sx={{flexGrow: 1, margin:'20px'}}>
             <AppBar position='static'>
@@ -41,6 +47,8 @@ const Navbar = () => {
                                 size="large"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
+                                component={motion.button}
+                                initial="hidden" animate="visible" variants={variant}
                                 onClick={openDrawer}
                                 color="inherit">
                                 <FontAwesomeIcon icon={faBars} />
@@ -53,7 +61,9 @@ const Navbar = () => {
                                     <List>
                                         {pagesMenu.map((page, index) => (
                                         <>
-                                        <ListItem button key={page}>
+                                        <ListItem  
+                                            component={motion.button} whileHover={{ scale: 1.1 }}
+                                            button key={page}>
                                             <ListItemText primary={page} />
                                         </ListItem><Divider light />
                                         </>
@@ -96,6 +106,8 @@ const Navbar = () => {
                             {pagesFull.map((page) => (
                             <Button
                                 key={page}
+                                component={motion.button} whileHover={{ scale: 1.1 }}
+                                initial="hidden" animate="visible" variants={variant}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
