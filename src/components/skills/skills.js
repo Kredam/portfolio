@@ -5,6 +5,7 @@ import {    Slider, Grid, Typography, List, ListItem, Box, Divider, Chip,
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExpand, faServer, faDatabase, faBroom, faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { faPython, faJava, faJs, faPhp } from '@fortawesome/free-brands-svg-icons';
+import { motion } from 'framer-motion'
 
 const Skills = () => {
     
@@ -31,13 +32,22 @@ const Skills = () => {
         return `${value}`;
     }
 
+    const scrollAnimation = {
+        offscreen: {opacity:0, y:50},
+        onscreen: {opacity:1, y:0, transition:{type: "spring", bounce:0.5, duration:3}}
+    }
+
     return (
         <Grid container>
             <Grid item container xs sm={6} alignItems='center' direction='column'>
-                <Grid item sx={{marginBottom:'25px'}}>
+                <Grid item sx={{marginBottom:'25px'}}
+                      component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                     <Typography variant='h4'>Proficiency</Typography>
                 </Grid>
-                <Grid item>
+                <Grid item
+                      component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                     <Box sx={{ width: 225 }}>
                         <Divider light>
                             <Chip variant="outlined" color="info" label={<FontAwesomeIcon icon={faJava} size='lg'/>} />
@@ -95,10 +105,14 @@ const Skills = () => {
                 </Grid>
             </Grid>
             <Grid item container sm={6}  alignItems='center' direction='column'>
-                <Grid item sx={{marginBottom:'25px'}}>
+                <Grid item sx={{marginBottom:'25px'}} 
+                      component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                     <Typography variant='h4'>Skills</Typography>
                 </Grid>
-                <Grid item sx={{width:'100%'}}>
+                <Grid item sx={{width:'100%'}}
+                      component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                     <Accordion>
                         <AccordionSummary
                             expandIcon={<FontAwesomeIcon icon={faExpand}/>}
