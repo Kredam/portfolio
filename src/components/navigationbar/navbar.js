@@ -41,8 +41,8 @@ const Navbar = () => {
         hidden: {opacity: 0, }
     }
     const navLogo = {
-        open: {rotate:180},
-        close: {rotate:-180}
+        open: {rotate:180, x:35,transition:{duration:1}},
+        close: {rotate:-180, x:0, transition:{duration:1}}
     }
 
     return(
@@ -69,7 +69,7 @@ const Navbar = () => {
                                         {pagesMenu.map((page, index) => (
                                         <>
                                         <ListItem  
-                                            component={motion.button} whileHover={{ scale: 1.1 }}
+                                            component={motion.button} whileTap={{scale: 0.8}}
                                             button key={page}>
                                             <ListItemText primary={page} />
                                         </ListItem><Divider light />
@@ -94,8 +94,8 @@ const Navbar = () => {
                                 key={page}
                                 component={motion.button} whileHover={{ scale: 1.1 }}
                                 initial="hidden" animate="visible" variants={navItem}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                onClick={handleCloseNavMenu} whileTap={{scale: 0.8}}
+                                sx={{ my: 1, color: 'white', display: 'block' }}
                             >
                                 {page}
                             </Button>

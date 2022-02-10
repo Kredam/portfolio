@@ -1,10 +1,17 @@
 import { Paper, Typography, Grid, Button, Box, Card, CardMedia, CardContent, Divider, Chip } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm, faCode, faMusic, faPlane, faGuitar, faGamepad, faFutbol, faCoffee, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 const About = () => {
+
+    const scrollAnimation = {
+        offscreen: {opacity:0, y:50},
+        onscreen: {opacity:1, y:0, transition:{type: "spring", bounce:0.5, duration:3}}
+    }
+
     return (
-        <Grid container direction='column' sx={{  marginTop:'105px', marginBottom:'65px'}}>
+        <Grid container direction='column' sx={{  marginTop:'201px', marginBottom:'65px'}}>
             <Paper elevation={1}>
                 <Grid item container direction='column' justifyContent='center' alignItems='center' sx={{marginTop:'15px'}}>
                     <Grid item>
@@ -67,25 +74,29 @@ const About = () => {
                             <Typography variant='h4'>My interests</Typography>
                         </Grid>
                         <Grid container item justifyContent='space-around'>
-                            <Card variant='outlined' >
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                                 <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faFilm} />
                                     <Typography>Anime</Typography>
                                 </CardContent>
                             </Card>
-                            <Card variant='outlined'>
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                             <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faCode} />
                                     <Typography>Coding</Typography>
                                 </CardContent>
                             </Card>
-                            <Card variant='outlined'>
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                             <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faPlane} />
                                     <Typography>Travel</Typography>
                                 </CardContent>
                             </Card>
-                            <Card variant='outlined'>
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                             <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faMusic} />
                                     <Typography>Music</Typography>
@@ -93,25 +104,29 @@ const About = () => {
                             </Card>
                         </Grid>
                         <Grid container item  justifyContent='space-around'>
-                        <Card variant='outlined'>
+                        <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                                 <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faGuitar} />
                                     <Typography>Guitar</Typography>
                                 </CardContent>
                             </Card>
-                            <Card variant='outlined'>
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                             <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faGamepad} />
                                     <Typography>Games</Typography>
                                 </CardContent>
                             </Card>
-                            <Card variant='outlined'>
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                             <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faFutbol} />
                                     <Typography>Soccer</Typography>
                                 </CardContent>
                             </Card>
-                            <Card variant='outlined'>
+                            <Card variant='outlined'component={motion.div} variants={scrollAnimation}
+                      initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                             <CardContent sx={{textAlign:'center'}}>
                                     <FontAwesomeIcon icon={faCoffee} />
                                     <Typography>Coffee</Typography>
