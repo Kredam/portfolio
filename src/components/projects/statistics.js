@@ -2,12 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Typography, Grid, CircularProgress, Card, CardContent } from "@mui/material";
 import useSWR from "swr";
+import { motion } from 'framer-motion'
 
 const fetcher = async(...args) => await fetch(...args).then(response => response.json());
 
 
 
 const Statistics = () => {
+
+    const scrollAnimation = {
+        offscreen: {opacity:0, y:50},
+        onscreen: {opacity:1, y:0, transition:{type: "spring", bounce:0.5, duration:3}}
+    }
 
     const { data, error } = useSWR('/api/githubAPI', fetcher);
     const statNames= ['Repos', 'Followers', 'Stargazers', 'Watchers', 'Public Repos', 'Private Repos', 'Collabs'];
@@ -20,7 +26,8 @@ const Statistics = () => {
                 {data ? Object.entries(data).map( ([key, value]) => {
                     return <>
                         <Grid item xs sx={{margin:2}}>
-                            <Card sx={{width:150}}>
+                            <Card sx={{width:150}} component={motion.div} variants={scrollAnimation}
+                                    initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                                 <CardContent>
                                     <Typography align="center">{key}</Typography>
                                 </CardContent>
@@ -33,7 +40,8 @@ const Statistics = () => {
                 }) : statNames.map((stat) => {
                         return <>
                             <Grid item xs>
-                                <Card sx={{width:150}}>
+                                <Card sx={{width:150}} component={motion.div} variants={scrollAnimation}
+                                    initial="offscreen" whileInView="onscreen" viewport={{once:true}}>
                                     <CardContent>
                                         <Typography align="center">{stat}</Typography>
                                     </CardContent>

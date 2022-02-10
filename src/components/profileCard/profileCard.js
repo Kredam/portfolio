@@ -5,8 +5,14 @@ import { motion } from 'framer-motion';
 
 const Card = () =>{
 
+	const profCard = {
+		hide: {opacity:0},
+		visible: {opacity:1, transition:{duration:1}},
+	}
+
 	return(<Paper sx={{maxWidth:"500px", borderRadius:'90px', margin:"auto"}}>
-			<Grid container sx={{marginTop: '180px'}}>
+			<Grid container sx={{marginTop: '180px'}} variants={profCard} component={motion.div}
+						initial="hide" animate="visible">
 				<Grid item sm={5}>
 					<Avatar
 						alt="Kreidli Ádám"
@@ -14,7 +20,8 @@ const Card = () =>{
 						sx={{ width: 200, height: 200 , display:{xs:'none', sm:'block'}}}
 					/>
 				</Grid>
-				<Grid item sm={7} container>
+				<Grid item sm={7} container variants={profCard} component={motion.div}
+						initial="hide" animate="visible">
 					<Grid item xs container direction="column" justifyContent='center' alignItems='center'>
 						<Grid item xs>
 							<Typography sx={{fontSize:'18px', marginTop:'16px'}} align='center'>Kreidli Ádám</Typography>
@@ -32,6 +39,7 @@ const Card = () =>{
 								size='medium'
 								component={motion.button}
 								whileHover={{scale:1.2}}
+								whileTap={{scale:0.8}}
 								sx={{mr: 2}}>
 								<FontAwesomeIcon icon={faFacebook}/>
 							</IconButton>
@@ -41,6 +49,7 @@ const Card = () =>{
 								size='medium'
 								component={motion.button}
 								whileHover={{scale:1.2}}
+								whileTap={{scale:0.8}}
 								sx={{mr: 2}}>
 								<FontAwesomeIcon icon={faLinkedin}/>
 							</IconButton>
@@ -50,6 +59,7 @@ const Card = () =>{
 								size='medium'
 								component={motion.button}
 								whileHover={{scale:1.2}}
+								whileTap={{scale:0.8}}
 								sx={{mr: 2}}>
 								<FontAwesomeIcon icon={faGithub}/>
 							</IconButton>
@@ -59,6 +69,7 @@ const Card = () =>{
 								size='medium'
 								component={motion.button}
 								whileHover={{scale:1.2}}
+								whileTap={{scale:0.8}}
 								sx={{mr: 2}}>
 								<FontAwesomeIcon icon={faTwitter}/>
 							</IconButton>

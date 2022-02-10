@@ -197,6 +197,26 @@ const Skills = () => {
                         </List>
                         </AccordionDetails>
                     </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<FontAwesomeIcon icon={faExpand}/>}
+                        >
+                            <Typography sx={{marginLeft:'5px'}}>Others</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                        <List>
+                            <ListItem>
+                                <Typography></Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography></Typography>
+                            </ListItem>
+                            <Divider light>
+                                <Chip label='References' />
+                            </Divider>
+                        </List>
+                        </AccordionDetails>
+                    </Accordion>
                 </Grid>
             </Grid>
         </Grid>
