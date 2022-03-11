@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUser, faCode } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
-    const [anchorElNav, setAnchorElNav] = useState(null);
     const [drawer, setDrawer] = useState(false);
     const [codeIconAnimation, setCodeIconAnimation] = useState(false)
 
@@ -25,23 +24,19 @@ const Navbar = () => {
         setCodeIconAnimation(false)
     }
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    }
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null)
-    }
-    const scrollTo = async (div_id) => {
+    const scrollTo =  async (div_id) => {
         const element = await document.getElementById(div_id)
         console.log(element)
         element.scrollIntoView({behavior:"smooth"})
     }
-    const pagesMenu = [<Avatar alt="Kreidli Ádám" src="./avatar.jpg" sx={{ width: 170, height: 170 , display:{xs:'block', sm:'none'}}}/>,'About', 'Skills','Projects', 'Statistics'];
-    // const pagesFull = ['About', 'Skills', 'Kredam','Projects', 'Statistics'];
+
     const pagesFull = { 'About':"about_div",
                         'Skills':"skills_div",
                         'Kredam': "card_div",
+                        'Projects':"stats_div",
+                        'Statistics':"stats_div"};
+    const pagesMenu = { 'About':"about_div",
+                        'Skills':"skills_div",
                         'Projects':"stats_div",
                         'Statistics':"stats_div"};
 
@@ -75,12 +70,20 @@ const Navbar = () => {
                                 onClose={closeDrawer}>
                                 <Box sx={{width:200}}>
                                     <List>
-                                        {pagesMenu.map((page, index) => (
+                                        <ListItem
+                                            component={motion.button} onClick={() => scrollTo("card_div")} whileTap={{scale: 0.8}}
+                                            button>
+                                            <Avatar alt="Kreidli Ádám" src="./avatar.jpg" sx={{ width: 170, height: 170 , display:{xs:'block', sm:'none'}}}/>
+                                        </ListItem><Divider light />
+                                        {Object.entries(pagesMenu).map(([key, value]) => (
                                         <>
-                                        <ListItem  
-                                            component={motion.button} onClick={scrollTo} whileTap={{scale: 0.8}}
-                                            button key={page}>
-                                            <ListItemText primary={page} />
+                                        <ListItem
+                                            component={motion.button} onClick={() => {
+                                            closeDrawer();
+                                            scrollTo(value);
+                                        }} whileTap={{scale: 0.8}}
+                                            button key={key}>
+                                            <ListItemText primary={key} />
                                         </ListItem><Divider light />
                                         </>
                                         ))}
@@ -106,7 +109,6 @@ const Navbar = () => {
                                 initial="hidden" animate="visible" variants={navItem}
                                 onClick={() => {
                                     scrollTo(value)
-                                    handleCloseNavMenu()
                                 }} whileTap={{scale: 0.8}}
                                 sx={{ my: 1, color: 'white', display: 'block' }}
                             >
