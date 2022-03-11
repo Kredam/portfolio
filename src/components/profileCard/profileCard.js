@@ -33,10 +33,11 @@ const Card = () =>{
 
 										</>
 							})} */}
-							<IconButton href='https://www.facebook.com/kreidli.adam/'
+							<IconButton
 								color='info'
 								edge='start'
 								size='medium'
+								onClick={() => window.open("https://www.facebook.com/kreidli.adam", "_blank")}
 								component={motion.button}
 								whileHover={{scale:1.2}}
 								whileTap={{scale:0.8}}
@@ -45,6 +46,7 @@ const Card = () =>{
 							</IconButton>
 							<IconButton
 								color='info'
+								onClick={() => window.open('https://www.linkedin.com/in/%C3%A1d%C3%A1m-kreidli-44b5a2234', "_blank")}
 								edge='start'
 								size='medium'
 								component={motion.button}
@@ -53,8 +55,9 @@ const Card = () =>{
 								sx={{mr: 2}}>
 								<FontAwesomeIcon icon={faLinkedin}/>
 							</IconButton>
-							<IconButton href='https://github.com/Kredam'
+							<IconButton
 								color='info'
+								onClick={() => window.open('https://github.com/Kredam', "_blank")}
 								edge='start'
 								size='medium'
 								component={motion.button}
@@ -63,16 +66,7 @@ const Card = () =>{
 								sx={{mr: 2}}>
 								<FontAwesomeIcon icon={faGithub}/>
 							</IconButton>
-							<IconButton
-								color='info'
-								edge='start'
-								size='medium'
-								component={motion.button}
-								whileHover={{scale:1.2}}
-								whileTap={{scale:0.8}}
-								sx={{mr: 2}}>
-								<FontAwesomeIcon icon={faTwitter}/>
-							</IconButton>
+
 						</Grid>
 					</Grid>
 				</Grid>
