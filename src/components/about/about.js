@@ -20,7 +20,11 @@ const About = () => {
                         <Divider light />
                     </Grid>
                     <Grid item  sx={{marginTop:'15px'}}>
-                        <Typography variant='body1'>Currently studying Computer science at Szeged </Typography>
+                        <Typography variant='body1'>I'm currently doing my Bachelor degree in Computer science at the University of Szeged.
+                            I'm interested in Full-stack web development, task-automation and unit testing.
+                            I love learning new technologies, and working on my own projects in my spare time. My main goal is to become a Full-stack web developer.
+                            Other than tech, I'm passionate about learning new languages, and playing the guitar. I'm currently learning Japanese.
+                            </Typography>
                     </Grid>
                 </Grid>
                 <Grid item container>

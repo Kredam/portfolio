@@ -67,7 +67,7 @@ const Skills = () => {
                         </Divider>
                         <Slider 
                             aria-label='Python knowledge'
-                            defaultValue={25}
+                            defaultValue={20}
                             max={30}
                             min={0}
                             getAriaValueText={textValue}
@@ -129,7 +129,7 @@ const Skills = () => {
                                     <Typography>Beautifulsoup</Typography>
                                 </ListItem>
                                 <Divider light>
-                                    <Chip label='References' />
+                                    <Chip label='Currently learning' />
                                 </Divider>
                             </List>
                         </AccordionDetails>
@@ -149,8 +149,11 @@ const Skills = () => {
                                 <ListItem>
                                     <Typography>SQLite</Typography>
                                 </ListItem>
+                                <ListItem>
+                                    <Typography>NoSQL</Typography>
+                                </ListItem>
                                 <Divider light>
-                                    <Chip label='References' />
+                                    <Chip label='Currently learning' />
                                 </Divider>
                             </List>
                         </AccordionDetails>
@@ -171,8 +174,11 @@ const Skills = () => {
                                 <Typography>Flask</Typography>
                             </ListItem>
                             <Divider light>
-                                <Chip label='References' />
+                                <Chip label='Currently learning' />
                             </Divider>
+                            <ListItem>
+                                <Typography>Laravel</Typography>
+                            </ListItem>
                         </List>
                         </AccordionDetails>
                     </Accordion>
@@ -188,12 +194,12 @@ const Skills = () => {
                             <ListItem>
                                 <Typography>React</Typography>
                             </ListItem>
+                            <Divider light>
+                                <Chip label='Currently learning' />
+                            </Divider>
                             <ListItem>
                                 <Typography>Angular</Typography>
                             </ListItem>
-                            <Divider light>
-                                <Chip label='References' />
-                            </Divider>
                         </List>
                         </AccordionDetails>
                     </Accordion>
@@ -205,15 +211,15 @@ const Skills = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <List>
-                            <ListItem>
-                                <Typography></Typography>
-                            </ListItem>
-                            <ListItem>
-                                <Typography></Typography>
-                            </ListItem>
                             <Divider light>
-                                <Chip label='References' />
+                                <Chip label='Currently learning' />
                             </Divider>
+                            <ListItem>
+                                <Typography>Design Patterns</Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography>Japanese</Typography>
+                            </ListItem>
                         </List>
                         </AccordionDetails>
                     </Accordion>
