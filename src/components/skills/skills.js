@@ -39,7 +39,7 @@ const Skills = () => {
 
     return (
         <Grid container>
-            <Grid item container xs sm={6} alignItems='center' direction='column'>
+            <Grid item id="skills_div" container xs sm={6} alignItems='center' direction='column'>
                 <Grid item sx={{marginBottom:'25px'}}
                       component={motion.div} variants={scrollAnimation}
                       initial="offscreen" whileInView="onscreen" viewport={{once:true}}>

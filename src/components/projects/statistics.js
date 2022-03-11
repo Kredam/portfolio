@@ -3,22 +3,28 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Typography, Grid, CircularProgress, Card, CardContent } from "@mui/material";
 import useSWR from "swr";
 import { motion } from 'framer-motion'
+import {useEffect, useRef} from "react";
 
 const fetcher = async(...args) => await fetch(...args).then(response => response.json());
 
-
-
 const Statistics = () => {
+    const statsDiv = useRef(null)
 
     const scrollAnimation = {
         offscreen: {opacity:0, y:50},
         onscreen: {opacity:1, y:0, transition:{type: "spring", bounce:0.5, duration:3}}
     }
 
-    const { data, error } = useSWR('/api/githubAPI', fetcher);
+    useEffect(() => {
+        if(statsDiv !== null){
+            localStorage.setItem("stats_div", statsDiv)
+        }
+    })
+
+    const { data } = useSWR('/api/githubAPI', fetcher);
     const statNames= ['Repos', 'Followers', 'Stargazers', 'Watchers', 'Public Repos', 'Private Repos', 'Collabs'];
     return(
-        <Grid sx={{marginTop:'40px'}} container justifyContent="center" alignItems='center'>
+        <Grid ref={statsDiv} id="stats_div" sx={{marginTop:'40px'}} container justifyContent="center" alignItems='center'>
             <Grid item sx={{marginBottom:'25px'}}>
                 <Typography variant='h4' align="center">GitHub <FontAwesomeIcon icon={faGithub}/> Statistics</Typography>
             </Grid>

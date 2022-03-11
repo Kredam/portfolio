@@ -32,9 +32,18 @@ const Navbar = () => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null)
     }
-
+    const scrollTo = async (div_id) => {
+        const element = await document.getElementById(div_id)
+        console.log(element)
+        element.scrollIntoView({behavior:"smooth"})
+    }
     const pagesMenu = [<Avatar alt="Kreidli Ádám" src="./avatar.jpg" sx={{ width: 170, height: 170 , display:{xs:'block', sm:'none'}}}/>,'About', 'Skills','Projects', 'Statistics'];
-    const pagesFull = ['About', 'Skills', 'Kredam','Projects', 'Statistics'];
+    // const pagesFull = ['About', 'Skills', 'Kredam','Projects', 'Statistics'];
+    const pagesFull = { 'About':"about_div",
+                        'Skills':"skills_div",
+                        'Kredam': "card_div",
+                        'Projects':"stats_div",
+                        'Statistics':"stats_div"};
 
     const navItem = {
         visible: {opacity: 1, transition:{delay:0.5}},
@@ -69,7 +78,7 @@ const Navbar = () => {
                                         {pagesMenu.map((page, index) => (
                                         <>
                                         <ListItem  
-                                            component={motion.button} whileTap={{scale: 0.8}}
+                                            component={motion.button} onClick={scrollTo} whileTap={{scale: 0.8}}
                                             button key={page}>
                                             <ListItemText primary={page} />
                                         </ListItem><Divider light />
@@ -89,15 +98,19 @@ const Navbar = () => {
                             <Typography variant='h6'>Kredam</Typography>
                         </Box>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'space-evenly' }}>
-                            {pagesFull.map((page) => (
+                            {Object.entries(pagesFull).map(([key, value]) => {console.log(key, value)})}
+                            {Object.entries(pagesFull).map(([key, value]) => (
                             <Button
-                                key={page}
+                                key={key}
                                 component={motion.button} whileHover={{ scale: 1.1 }}
                                 initial="hidden" animate="visible" variants={navItem}
-                                onClick={handleCloseNavMenu} whileTap={{scale: 0.8}}
+                                onClick={() => {
+                                    scrollTo(value)
+                                    handleCloseNavMenu()
+                                }} whileTap={{scale: 0.8}}
                                 sx={{ my: 1, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {key}
                             </Button>
                             ))}
                         </Box>

@@ -10,7 +10,7 @@ const Card = () =>{
 		visible: {opacity:1, transition:{duration:1}},
 	}
 
-	return(<Paper sx={{maxWidth:"500px", borderRadius:'90px', margin:"auto"}}>
+	return(<Paper id="card_div" sx={{maxWidth:"500px", borderRadius:'90px', margin:"auto"}}>
 			<Grid container sx={{marginTop: '180px'}} variants={profCard} component={motion.div}
 						initial="hide" animate="visible">
 				<Grid item sm={5}>

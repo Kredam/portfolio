@@ -11,7 +11,7 @@ const About = () => {
     }
 
     return (
-        <Grid container direction='column' sx={{  marginTop:'201px', marginBottom:'65px'}}>
+        <Grid id="about_div" container direction='column' sx={{  marginTop:'201px', marginBottom:'65px'}}>
             <Paper elevation={1}>
                 <Grid item container direction='column' justifyContent='center' alignItems='center' sx={{marginTop:'15px'}}>
                     <Grid item>
