@@ -71,7 +71,7 @@ const Navbar = () => {
                                 <Box sx={{width:200}}>
                                     <List>
                                         <ListItem
-                                            component={motion.button} onClick={() => scrollTo("card_div")} whileTap={{scale: 0.8}}
+                                            component={motion.button} onClick={() => {closeDrawer(); scrollTo("card_div")}}
                                             button>
                                             <Avatar alt="Kreidli Ádám" src="./avatar.jpg" sx={{ width: 170, height: 170 , display:{xs:'block', sm:'none'}}}/>
                                         </ListItem><Divider light />
