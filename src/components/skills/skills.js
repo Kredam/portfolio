@@ -168,7 +168,7 @@ const Skills = () => {
                         <AccordionDetails>
                         <List>
                             <ListItem>
-                                <Typography>Node.js</Typography>
+                                <Typography>Express.js</Typography>
                             </ListItem>
                             <ListItem>
                                 <Typography>Flask</Typography>
@@ -177,7 +177,7 @@ const Skills = () => {
                                 <Chip label='Currently learning' />
                             </Divider>
                             <ListItem>
-                                <Typography>Laravel</Typography>
+                                <Typography>Django</Typography>
                             </ListItem>
                         </List>
                         </AccordionDetails>
@@ -211,6 +211,9 @@ const Skills = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <List>
+                            <ListItem>
+                                <Typography>English (C1 certificate)</Typography>
+                            </ListItem>
                             <Divider light>
                                 <Chip label='Currently learning' />
                             </Divider>
